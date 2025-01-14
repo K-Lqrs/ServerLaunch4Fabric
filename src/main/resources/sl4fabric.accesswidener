@@ -1,0 +1,3 @@
+accessWidener v1 named
+
+accessible method com/minecraft/client/gui/screen/Screen addDrawableChild (Lnet/minecraft/client/gui/Element,net/minecraft/client/gui/Drawable,net/minecraft/client/gui/Selectable;)Ljava/lang/Object;

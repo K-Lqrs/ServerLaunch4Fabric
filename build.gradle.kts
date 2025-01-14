@@ -2,6 +2,7 @@ import com.google.gson.GsonBuilder
 
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
     id("fabric-loom")
 }
 
@@ -46,6 +47,10 @@ dependencies {
 
     // for generate fabric meta file
     compileOnly("com.google.code.gson:gson:2.11.0")
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/sl4fabric.accesswidener")
 }
 
 fun generateMeta() {

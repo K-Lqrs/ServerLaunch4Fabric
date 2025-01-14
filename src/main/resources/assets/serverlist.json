@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Example Server",
+    "url": "./servers/example",
+    "icon": "example.png",
+    "args": [
+      "-server",
+      "-Xmx2G",
+      "-Xms2G",
+      "-nogui"
+    ],
+    "version": "1.21.4"
+  },
+  {
+    "name": "Another Server",
+    "url": "./servers/another",
+    "icon": "another.png",
+    "args": [
+      "-server",
+      "-Xmx4G",
+      "-Xms4G",
+      "-nogui"
+    ],
+    "version": "1.21.4"
+  }
+]
