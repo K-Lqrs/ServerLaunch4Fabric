@@ -49,10 +49,6 @@ dependencies {
     compileOnly("com.google.code.gson:gson:2.11.0")
 }
 
-loom {
-    accessWidenerPath = file("src/main/resources/sl4fabric.accesswidener")
-}
-
 fun generateMeta() {
     val meta = mapOf(
         "schemaVersion" to 1,
@@ -65,7 +61,7 @@ fun generateMeta() {
         "icon" to "assets/fabricord/icon.png",
         "license" to "MIT",
         "contact" to mapOf(
-            "sources" to ""
+            "sources" to "https://github.com/K-Lqrs/ServerLaunch4Fabric"
         ),
         "entrypoints" to mapOf(
             "client" to listOf(
