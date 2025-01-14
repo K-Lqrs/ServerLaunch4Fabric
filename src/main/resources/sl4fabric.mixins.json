@@ -3,7 +3,8 @@
   "package": "net.rk4z.sl4fabric.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-
+    "ScreenAccessor",
+    "TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
