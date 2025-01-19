@@ -1,14 +1,22 @@
 package net.rk4z.sl4fabric.screen
 
-import net.ccbluex.liquidbounce.mcef.MCEF
-import net.ccbluex.liquidbounce.mcef.MCEFBrowser
-import net.minecraft.client.gui.screen.Screen
-import net.minecraft.text.Text
+import net.rk4z.mcefal.CefTab
+import net.rk4z.mcefal.EmbeddedBrowserScreen
+import net.rk4z.mcefal.TabDim
 
-class SL4FabricMainMenu : Screen(Text.of("SL4Fabric")) {
-	private var browser: MCEFBrowser? = null
+class SL4FabricMainMenu : EmbeddedBrowserScreen("SL4Fabric") {
+	private lateinit var tab: CefTab
 
-	init {
-		browser = MCEF.INSTANCE.createBrowser("http://127.0.0.1:", false, 60)
+	override fun initTab() {
+		try {
+			tab = browser.createTab(
+				"https://google.com",
+				TabDim.fullScreen(),
+				60,
+				"sl4fabric"
+			)
+		} catch (e: Exception) {
+			e.printStackTrace()
+		}
 	}
 }

@@ -2,13 +2,11 @@ package net.rk4z.sl4fabric
 
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-import net.ccbluex.liquidbounce.mcef.MCEF
-import net.ccbluex.liquidbounce.mcef.MCEFApp
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.MinecraftClient
-import net.minecraft.client.gui.screen.ButtonTextures
-import net.minecraft.util.Identifier
+import net.rk4z.mcefal.MCEFAL
+import net.rk4z.sl4fabric.screen.SL4FabricMainMenu
 import net.rk4z.sl4fabric.util.ServerConfigs
 import net.rk4z.sl4fabric.util.exists
 import org.slf4j.Logger
@@ -39,7 +37,6 @@ class ServerLaunch4Fabric() : ClientModInitializer {
 
     override fun onInitializeClient() {
         logger.info("Initializing $MOD_NAME...")
-        MCEF.INSTANCE.newResourceManager()
 
         try {
             if (!modDir.exists()) {
@@ -52,20 +49,15 @@ class ServerLaunch4Fabric() : ClientModInitializer {
                 logger.info("Created default server list file: $serverListFile")
             }
 
-            val resourceManager = MCEF.INSTANCE.resourceManager
-            if (resourceManager!!.requiresDownload()) {
-                resourceManager.downloadJcef()
-            } else {
-                logger.info("JCEF is already downloaded")
-            }
+            MCEFAL.INSTANCE.initialize()
 
             serverList = loadServerList()
+
+            SL4FabricMainMenu()
             logger.info("Loaded server list: ${serverList?.servers?.size ?: 0} servers")
         } catch (e: Exception) {
             logger.error("Failed to initialize $MOD_NAME: ${e.message}", e)
         }
-
-        MCEF.INSTANCE.initialize()
     }
 
     private fun createDefaultServerListFile() {

@@ -15,6 +15,7 @@ val modDescription = "A mod to launch Minecraft servers directly from your Fabri
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven("https://jitpack.io")
 }
 
@@ -32,7 +33,9 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricLanguageKotlinVersion")
 
     // MCEF from CCBlueX team: https://github.com/CCBlueX/mcef
-    modImplementation("com.github.CCBlueX:mcef:1.3.2-1.21.4")
+    modApi("com.github.CCBlueX:mcef:1.3.2-1.21.4")
+    modApi("net.rk4z:mcef-al:1.0.0")
+    modApi("net.rk4z:beacon:1.4.8")
 
     // for testing
     val libsDir = rootProject.file("libs/")
